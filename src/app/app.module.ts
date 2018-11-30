@@ -6,6 +6,11 @@ import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { SettingsComponent } from './componentes/settings/settings.component';
 import { MenuComponent } from './componentes/menu/menu.component';
+import { AdicionarComponent } from './pages/adicionar/adicionar.component';
+import { AtualizarComponent } from './pages/atualizar/atualizar.component';
+import { RemoverComponent } from './pages/remover/remover.component';
+import { VisualizarComponent } from './pages/visualizar/visualizar.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -13,9 +18,14 @@ import { MenuComponent } from './componentes/menu/menu.component';
     HeaderComponent,
     FooterComponent,
     SettingsComponent,
-    MenuComponent
+    MenuComponent,
+    AdicionarComponent,
+    AtualizarComponent,
+    RemoverComponent,
+    VisualizarComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule
   ],
   providers: [],
