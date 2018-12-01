@@ -1,0 +1,186 @@
+/* the norm */
+#gritter-notice-wrapper {
+	position:fixed;
+	top:20px;
+	right:20px;
+	width:301px;
+	z-index:9999;
+}
+#gritter-notice-wrapper.top-left {
+    left: 20px;
+    right: auto;
+}
+#gritter-notice-wrapper.bottom-right {
+    top: auto;
+    left: auto;
+    bottom: 20px;
+    right: 20px;
+}
+#gritter-notice-wrapper.bottom-left {
+    top: auto;
+    right: auto;
+    bottom: 20px;
+    left: 20px;
+}
+.gritter-item-wrapper {
+	position:relative;
+	margin:0 0 10px 0;
+	background:url('images/ie-spacer.gif'); /* ie7/8 fix */ 
+}
+.gritter-top {
+	background:url(images/gritter.png) no-repeat left -30px;
+	height:10px;
+}
+.hover .gritter-top {
+	background-position:right -30px;
+}
+.gritter-bottom {
+	background:url(images/gritter.png) no-repeat left bottom;
+	height:8px;
+	margin:0;
+}
+.hover .gritter-bottom {
+	background-position: bottom right;
+}
+.gritter-item {
+	display:block;
+	background:url(images/gritter.png) no-repeat left -40px;
+	color:#eee;
+	padding:2px 11px 8px 11px;
+	font-size: 11px;
+	font-family:verdana;
+}
+.hover .gritter-item {
+	background-position:right -40px;
+}
+.gritter-item p {
+	padding:0;
+	margin:0;
+	word-wrap:break-word;
+}
+.gritter-close {
+	display:none;
+	position:absolute;
+	top:5px;
+	left:3px;
+	background:url(images/gritter.png) no-repeat left top;
+	cursor:pointer;
+	width:30px;
+	height:30px;
+	text-indent:-9999em;
+}
+.gritter-close:before {
+	content: 'Fechar' !important;
+}
+
+.gritter-title {
+	font-size:14px;
+	font-weight:bold;
+	padding:0 0 7px 0;
+	display:block;
+	text-shadow:1px 1px 0 #000; /* Not supported by IE :( */
+}
+.gritter-image {
+	width:48px;
+	height:48px;
+	float:left;
+}
+.gritter-with-image,
+.gritter-without-image {
+	padding:0;
+}
+.gritter-with-image {
+	width:220px;
+	float:right;
+}
+/* for the light (white) version of the gritter notice */
+.gritter-light .gritter-item,
+.gritter-light .gritter-bottom,
+.gritter-light .gritter-top,
+.gritter-light .gritter-close {
+		background-color: #A00 !important;
+		opacity: 0.8 !important;
+    color: #EFEFEF !important;
+}
+.gritter-light .gritter-title {
+    text-shadow: none;
+}
+
+/* DANGER ===================== */
+.gritter-danger .gritter-item,
+.gritter-danger .gritter-bottom,
+.gritter-danger .gritter-top,
+.gritter-danger .gritter-close {
+		background-color: #900 !important;
+		opacity: 0.8 !important;
+		color: #EFEFEF !important;
+		font-size: 12px !important;
+}
+.gritter-danger .gritter-close:before {
+	color: #EFEFEF !important;
+}
+.gritter-danger .gritter-title {
+	color: #EFEFEF !important;
+	text-shadow: none;
+	font-weight: bold !important;
+	font-size: 16px !important;
+}
+/* SUCCESS ===================== */
+.gritter-success .gritter-item,
+.gritter-success .gritter-bottom,
+.gritter-success .gritter-top,
+.gritter-success .gritter-close {
+		background-color: #00acac !important;
+		opacity: 0.8 !important;
+		color: #EFEFEF !important;
+		font-size: 12px !important;
+}
+.gritter-success .gritter-close:before {
+	color: #EFEFEF !important;
+}
+.gritter-success .gritter-title {
+		color: #EFEFEF !important;
+		text-shadow: none;
+		font-weight: bold !important;
+		font-size: 16px !important;
+}
+
+/* WARNING ===================== */
+.gritter-warning .gritter-item,
+.gritter-warning .gritter-bottom,
+.gritter-warning .gritter-top,
+.gritter-warning .gritter-close {
+		background-color: #f59c1a !important;
+		opacity: 0.8 !important;
+		color: #EFEFEF !important;
+		font-size: 12px !important;
+}
+.gritter-warning .gritter-close:before {
+	color: #EFEFEF !important;
+}
+.gritter-warning .gritter-title {
+	color: #EFEFEF !important;
+	text-shadow: none;
+	font-weight: bold !important;
+	font-size: 16px !important;
+}
+
+/* INFO ======================== */
+.gritter-info .gritter-item,
+.gritter-info .gritter-bottom,
+.gritter-info .gritter-top,
+.gritter-info .gritter-close {
+		background-color: #49b6d6 !important;
+		opacity: 0.8 !important;
+		color: #EFEFEF !important;
+		font-size: 12px !important;
+}
+.gritter-info .gritter-close:before {
+	color: #EFEFEF !important;
+}
+.gritter-info .gritter-title {
+	color: #EFEFEF !important;
+	text-shadow: none;
+	font-weight: bold !important;
+	font-size: 16px !important;
+}
