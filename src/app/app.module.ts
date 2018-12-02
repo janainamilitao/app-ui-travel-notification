@@ -16,6 +16,8 @@ import { MensagensService } from './services/mensagens.service';
 import { ErrorHandlerService } from './services/error-handler.service';
 import { HttpClientModule } from '@angular/common/http';
 
+import { AgmCoreModule } from '@agm/core';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +33,11 @@ import { HttpClientModule } from '@angular/common/http';
     AppRoutingModule,
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyD7qfO9sVNMkgxPDMSwHmxSl6QEHY8tiRQ'
+
+    })
   ],
   providers: [TravelService, MensagensService, ErrorHandlerService],
   bootstrap: [AppComponent]

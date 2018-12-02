@@ -1,22 +1,55 @@
 <div class="row">
+
       <div class="col-xs-12">
+
             <div class="box box-primary">
+
                   <div class="box-header with-border">
+
                         <h3 class="box-title">Aviso Viagem</h3>
+
                         <div class="pull-right">
+
                               <button type="button" class="btn btn-success" data-toggle="modal" data-target="#addTravelModal">
+
                                     Adicionar
+
                               </button>
+
                         </div>
 
+ 
+
                   </div>
+
                   <div class="box-body">
-                        <p>Mapa aqui.......</p>
+
+                        <agm-map [latitude]="lat" [longitude]="lng" (mapClick)=onChoseLocation($event)>
+
+                              <agm-marker [latitude]="lat" [longitude]="lng" [markerDraggable]="true" (dragEnd)="markerDragEnd($event)"></agm-marker>
+
+                        </agm-map>
+
+                        <div class="pull-right">
+
+                              <input [(ngModel)]="local" type="text" class="form-control" placeholder="Country">
+
+                              <input [(ngModel)]="data" type="text" class="form-control" placeholder="Country">
+
+                              <button type="button" class="btn btn-success" (click)="randomCountry()">
+
+                                    Random
+
+                              </button>
+
+                        </div>
 
                   </div>
 
             </div>
+
       </div>
+
 </div>
 
 <div class="modal fade" id="addTravelModal" tabindex="-1" role="dialog" aria-labelledby="addTravelDialog" aria-hidden="true">

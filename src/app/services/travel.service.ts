@@ -7,7 +7,7 @@ import {RequestOptions} from '@angular/http';
 @Injectable()
 export class TravelService{
 
-    private baseUrl = `http://192.168.1.42:8081/conductorApi/public/api/travelnotification/itinerary`;
+    private baseUrl = `http://localhost:8000/api/travelnotification/itinerary`;
 
     constructor( private http: HttpClient) { }
 
@@ -15,7 +15,7 @@ export class TravelService{
         return this.http.get<TravelItinerary>(`${this.baseUrl}/${partnerBid}`)
     }
 
-    list(): Observable<TravelItinerary[]> {
+    list() {
         return this.http.get<TravelItinerary[]>(this.baseUrl)
     }
 
@@ -46,6 +46,12 @@ export class TravelService{
 
     update(travelItinerary: TravelItinerary) {  
         return this.http.put<TravelItinerary>(`${this.baseUrl}`, travelItinerary);
+    }
+
+    findTravelCountry(country: string) {
+
+        return this.http.get(`http://localhost/api/travelnotification/itinerary/${country}`);
+
     }
 
 }

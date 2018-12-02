@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { TravelService } from '../../services/travel.service';
 import { TravelItinerary } from '../../model/travel-itinerary.model';
 import { ErrorHandlerService } from '../../services/error-handler.service';
+import { ResponseApi } from '../../model/response-api.model';
 
 @Component({
   selector: 'app-visualizar',
@@ -10,7 +11,7 @@ import { ErrorHandlerService } from '../../services/error-handler.service';
 })
 export class VisualizarComponent implements OnInit {
 
-  public travelList : Array<TravelItinerary>;
+  public travelList : Array<any>;
 
  
     public columns = [];
@@ -31,6 +32,7 @@ export class VisualizarComponent implements OnInit {
   list(){
     this.travelService.list().subscribe(
       response => {
+        console.log(response);
         this.travelList = response;
       },
       err => {
