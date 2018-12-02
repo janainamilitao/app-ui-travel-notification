@@ -2,11 +2,12 @@ import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { HttpClient } from "@angular/common/http";
 import {TravelItinerary} from "../model/travel-itinerary.model";
+import { stringify } from "@angular/core/src/render3/util";
 
 @Injectable()
 export class TravelService{
 
-    private baseUrl = ``;
+    private baseUrl = `http://192.168.1.42/conductorApi/public/api/travelnotification/itinerary`;
 
     constructor( private http: HttpClient) { }
 
@@ -19,7 +20,12 @@ export class TravelService{
     }
 
     create(travelItinerary: TravelItinerary) {
-        return this.http.post<TravelItinerary>(this.baseUrl, travelItinerary)
+        console.log(travelItinerary)
+        
+        return this.http.post<TravelItinerary>(this.baseUrl, travelItinerary);
+         
+      
+        // return null;
     }
 
     update(travelItinerary: TravelItinerary) {  

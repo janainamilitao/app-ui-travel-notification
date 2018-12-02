@@ -7,12 +7,7 @@ import { Destinations } from '../../model/destinations.model';
 import { MensagensService } from '../../services/mensagens.service';
 import { ErrorHandlerService } from '../../services/error-handler.service';
 
-export class Country{
-  constructor(
-      public name: string,
-      public code: string
-  ){}
-}
+
 
 @Component({
   selector: 'app-adicionar',
@@ -21,15 +16,13 @@ export class Country{
 })
 export class AdicionarComponent implements OnInit {
 
-  @Input() countrys  = new Array<Country>(); 
-
-  @Input() selectCountrys = new Array<Country>(); 
+  public destination: Destinations;
   
-
   public travel: TravelItinerary;
-  public primaryAccountNumbers:  Array<PrimaryAccountNumbers>
-  public destinations: Array<Destinations>
+  public primaryAccountNumbers:  PrimaryAccountNumbers;
+  public countrys: Array<Destinations>;
   public formTravel: FormGroup;
+  @Input() card: string;
 
   constructor(private travelService: TravelService,
              private formBuilder: FormBuilder,
@@ -38,12 +31,12 @@ export class AdicionarComponent implements OnInit {
 
        
 
-      this.travel = new TravelItinerary("", "",this.primaryAccountNumbers, this.destinations, "", "", "", "" )
+      this.travel = new TravelItinerary("", "",new PrimaryAccountNumbers(""), new Destinations("", ""), "", "", "", "" )
 
       this.formTravel = this.formBuilder.group({
         partnerBid: [null],
-        userId: [null],
-        primaryAccountNumbers: [null, Validators.compose([Validators.required])],
+        userId: "",
+        cardAccountNumber: [null, Validators.compose([Validators.required])],
         destinations: [null, Validators.compose([Validators.required])],
         departureDate: [null, Validators.compose([Validators.required])],
         returnDate: [null, Validators.compose([Validators.required])],
@@ -55,17 +48,14 @@ export class AdicionarComponent implements OnInit {
 
 
  
-  ngOnInit() {   
-    let brasil = new Country("Brasil", "76");
-    let canada = new Country("Brasil", "124");
-    let eua = new Country("Estados Unidos", "840");
-
-    this.countrys.includes(brasil);
-    this.countrys.includes(canada);
-    this.countrys.includes(eua);
+  ngOnInit() { 
+    this.countrys = Array<Destinations>();
+    this.countrys.push(new Destinations("76", "Brasil"));
+    this.countrys.push(new Destinations("124", "Canadá"))
+    this.countrys.push(new Destinations("840", "Estados Unidos"))
   }
 
-  salvar() {
+  save() {
        if (this.travel.partnerBid) {
      // this.update();
     } else {
@@ -85,11 +75,13 @@ export class AdicionarComponent implements OnInit {
   }
 
   private applyFormValues() {
-    if(this.formTravel.get('departureDate').value){ this.travel.departureDate = this.formTravel.get('departureDate').value}
-    if(this.formTravel.get('departureDate').value){ this.travel.departureDate = this.formTravel.get('returnDate').value}
-    if(this.formTravel.get('primaryAccountNumbers').value){ this.travel.departureDate = this.formTravel.get('returnDate').value}
-    if(this.formTravel.get('destinations').value){ this.travel.departureDate = this.formTravel.get('returnDate').value}
     
+    if(this.formTravel.get('departureDate').value){ this.travel.departureDate = this.formTravel.get('departureDate').value}
+    if(this.formTravel.get('returnDate').value){ this.travel.returnDate = this.formTravel.get('returnDate').value}
+    if(this.formTravel.get('cardAccountNumber').value){ this.travel.primaryAccountNumbers.cardAccountNumber = this.formTravel.get('cardAccountNumber').value}
+    if(this.formTravel.get('destinations').value){ this.travel.destinations = this.formTravel.get('destinations').value}
+    if(this.formTravel.get('partnerBid').value){ this.travel.partnerBid = this.formTravel.get('partnerBid').value}
+  
   }
 }
 

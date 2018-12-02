@@ -51,24 +51,33 @@
                                     </div>
                               </div>
 
-
-                              <!-- <div class="form-group">
-                                    <label class="col-md-3 col-form-label">Destinatários</label>
-                                    <select class="form-control" ng-model="{{destinations}}">
-                                          <option value="76">Brasil</option>
-                                          <option value="124">Canadá</option>
-                                          <option value="840">Estados Unidos</option>                                                
-                                    </select>                                    
-                              </div> -->
+                              <div class="form-group">
+                                    <label for="destinations" class="col-md-3 col-form-label">País</label>                                    
+                                    <div class="col-md-5">
+                                          <select id="destination" class="form-control" formControlName="destinations" class="form-control">
+                                            <option *ngFor="let destination of countrys" 
+                                                [value]="destination.country">{{destination.name}}</option>
+                                          </select>
+                                    </div>
+                              </div>
 
                               <div class="form-group">
-                                    <label class="col-md-3 col-form-label">Cartões</label>
-                                    
+                                    <label class="col-md-3 col-form-label">Cartão</label>
+                                    <div class="col-md-5">
+                                          <input type="text"  id="cardAccountNumber" formControlName="cardAccountNumber" class="form-control" >
+                                    </div>
+                              </div>
+
+                              <div class="form-group">
+                                    <label class="col-md-3 col-form-label">BID</label>
+                                    <div class="col-md-5">
+                                          <input type="text"  id="bid" formControlName="partnerBid" class="form-control" >
+                                    </div>
                               </div>
                         </div>
 
                         <div class="modal-footer">
-                              <button type="submit" class="btn btn-success" *ngIf="!travel.partnerBid" [disabled]="formTravel.invalid">Cadastrar</button>
+                              <button type="submit" class="btn btn-success" >Cadastrar</button>
                               <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                         </div>
            

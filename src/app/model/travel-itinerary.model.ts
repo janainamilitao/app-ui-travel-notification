@@ -5,8 +5,8 @@ export class TravelItinerary{
     constructor(
         public partnerBid: string,
         public userId: string,
-        public primaryAccountNumbers:  Array<PrimaryAccountNumbers>,
-        public destinations: Array<Destinations>,
+        public primaryAccountNumbers:  PrimaryAccountNumbers,
+        public destinations: Destinations,
         public departureDate: string,
         public returnDate: string,
         public lastUpdatedBy: string,
