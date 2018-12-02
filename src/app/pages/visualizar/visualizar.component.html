@@ -1,7 +1,27 @@
-<div class="content">
-    <p>
-        Visualizar Viagem
-      </p>
-</div>
+<div class="row">
+    <div class="col-xs-12">
+          <div class="box box-primary">
+                <div class="box-header with-border">
+                      <h3 class="box-title">Listagem de Viagem</h3>
+                </div>
+                 <div class="box-body">
+                  <table class="table table-bordered">
+                        <tr>
+                          <th *ngFor="let col of columns">
+                            {{col.header}}
+                          </th>
+                        </tr>
+                        <tr>
+                          <td *ngFor="let col of columns">
+                            {{col}}
+                          </td>
+                        </tr>
+                      </table>
+                  </div>                 
+
+              </div>
+        </div>
+    </div>
+
 
 

@@ -52,11 +52,12 @@
                               </div>
 
                               <div class="form-group">
-                                    <label for="destinations" class="col-md-3 col-form-label">País</label>                                    
+                                    <label for="destinations" class="col-md-3 col-form-label">País</label>
                                     <div class="col-md-5">
-                                          <select id="destination" class="form-control" formControlName="destinations" class="form-control">
-                                            <option *ngFor="let destination of countrys" 
-                                                [value]="destination.country">{{destination.name}}</option>
+                                          <select formControlName="country" class="form-control" >
+                                                <option value="76">Brasil</option>
+                                                <option value="124">Canadá</option>
+                                                <option value="840">Estados Unidos</option>
                                           </select>
                                     </div>
                               </div>
