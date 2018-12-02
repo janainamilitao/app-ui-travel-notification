@@ -22,7 +22,12 @@ export class TravelService{
     create(travelItinerary: TravelItinerary) {
         console.log(travelItinerary)
         
-        return this.http.post<TravelItinerary>(this.baseUrl, travelItinerary);
+        return this.http.post<TravelItinerary>(this.baseUrl, JSON.stringify([travelItinerary.returnDate, 
+                                                                    travelItinerary.departureDate,
+                                                                    travelItinerary.destinations.country,
+                                                                  travelItinerary.primaryAccountNumbers.cardAccountNumber,
+                                                                travelItinerary.userId,
+                                                            travelItinerary.partnerBid  ] )  );
          
       
         // return null;
